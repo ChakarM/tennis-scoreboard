@@ -52,8 +52,7 @@ public class MatchRepositoryImplementation implements MatchRepository {
         if (!existing.isEmpty()) {
             return existing.get(0);
         }
-        PlayerEntity player = new PlayerEntity();
-        player.setName(name);
+        PlayerEntity player = new PlayerEntity(name);
         getCurrentSession().persist(player);
         return player;
     }
