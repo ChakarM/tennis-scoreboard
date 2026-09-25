@@ -38,7 +38,7 @@ public class MatchRepositoryImplementation implements MatchRepository {
     public void save(MatchModel matchModel) {
         PlayerEntity player1 = findOrCreatePlayer(matchModel.getPlayer(1).getName());
         PlayerEntity player2 = findOrCreatePlayer(matchModel.getPlayer(2).getName());
-        PlayerEntity winner = matchModel.getWinner().getName().equals(player1.getName()) ? player1 : player2;
+        PlayerEntity winner = matchModel.getWinner().get().getName().equals(player1.getName()) ? player1 : player2;
 
         MatchEntity match = new MatchEntity(player1, player2, winner);
 
